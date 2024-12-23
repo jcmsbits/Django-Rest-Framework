@@ -1,0 +1,10 @@
+{
+    "nombre" : "Luis",
+    "apellido" : "Martinez",
+    "hobbies" : ["viajar", "programar", "enseñar"],
+    "contacto" : {
+        "email" : "hola@cmartinez.com",
+        "redes" : "lcmartinez"
+    }
+
+}
