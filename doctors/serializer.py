@@ -13,12 +13,18 @@ class DoctorSerializer(serializers.ModelSerializer) :
         if "@example.com" in value:
                 return value
     
-        return serializers.ValidationError("El correo debe incluir @example.com")
+        raise serializers.ValidationError("El correo debe incluir @example.com")
     
     # Si queremos validar varios campos usamos validate
 
     def validate(self, attrs):
         # attrs es un diccionario con todos los campos de los modelos
+
+        if len(attrs['contact_number']) <= 10 and attrs['is_on_vacation'] == True:
+            raise serializers.ValidationError(
+                "Por favor, ingrese un número válido antes de irte a vacaciones"
+            )
+
         return super().validate(attrs)
 
 
